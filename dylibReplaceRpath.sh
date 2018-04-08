@@ -35,11 +35,11 @@ for dylib in "${dylibs[@]}"; do
 			
 				if [ "$dylib" = "$targetDylib" ]; then
 				
-					install_name_tool -id "@rpath/$targetDylib" $dylib
+					install_name_tool -id "@rpath/$targetDylib" "$dylibsPath/$dylib"
 				
 				else
 				
-					install_name_tool -change "$targetDylibPath" "@rpath/$targetDylib" $dylib
+					install_name_tool -change "$targetDylibPath" "@rpath/$targetDylib" "$dylibsPath/$dylib"
 					
 				fi
 				
